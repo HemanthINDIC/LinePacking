@@ -5,15 +5,23 @@
 </head>
 <body>
   <div id="slideshow-container">
-    <iframe id="report-iframe" src="https://app.powerbi.com/view?r=eyJrIjoiM2M1NzI0N2QtNzRjOS00YTQ4LTg2MjYtMGRiYWMzYTQ4MDVmIiwidCI6ImQxMjVmZmE0LTcxZTMtNDkxZC04N2I0LWM2NDkxNmVhY2YyMCJ9" frameborder="0" width="100%" height="600"></iframe>
+    <iframe id="report-iframe" src="" frameborder="0" width="100%" height="600"></iframe>
   </div>
 
   <script>
-    var reportUrl = "https://app.powerbi.com/view?r=eyJrIjoiM2M1NzI0N2QtNzRjOS00YTQ4LTg2MjYtMGRiYWMzYTQ4MDVmIiwidCI6ImQxMjVmZmE0LTcxZTMtNDkxZC04N2I0LWM2NDkxNmVhY2YyMCJ9";
+    var reportUrls = [
+      "https://app.powerbi.com/groups/d4b73e6b-e79a-4105-9b68-2d38dca45833/reports/990d4764-28bc-495b-a9cd-babf73d4335c/ReportSection2fb5f16ec7e90a49338c?ctid=d125ffa4-71e3-491d-87b4-c64916eacf20&experience=power-bi",
+      "https://app.powerbi.com/groups/d4b73e6b-e79a-4105-9b68-2d38dca45833/reports/990d4764-28bc-495b-a9cd-babf73d4335c/ReportSection8384ff0a4baa23254b20?ctid=d125ffa4-71e3-491d-87b4-c64916eacf20&experience=power-bi",
+      "https://app.powerbi.com/groups/d4b73e6b-e79a-4105-9b68-2d38dca45833/reports/990d4764-28bc-495b-a9cd-babf73d4335c/ReportSection73b51ba58e799f524ee2?ctid=d125ffa4-71e3-491d-87b4-c64916eacf20&experience=power-bi",
+      // Add more "Publish to web" URLs for each page
+    ];
+
+    var currentSlide = 0;
     var reportIframe = document.getElementById("report-iframe");
 
     function loadReport() {
-      reportIframe.src = reportUrl;
+      reportIframe.src = reportUrls[currentSlide];
+      currentSlide = (currentSlide + 1) % reportUrls.length;
     }
 
     setInterval(loadReport, 10000); // Change report every 10 seconds (adjust as needed)

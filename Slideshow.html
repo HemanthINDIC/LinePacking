@@ -5,25 +5,18 @@
 </head>
 <body>
   <div id="slideshow-container">
-    <iframe id="report-iframe" src="" frameborder="0" width="100%" height="600"></iframe>
+    <iframe id="report-iframe" src="https://app.powerbi.com/view?r=eyJrIjoiM2M1NzI0N2QtNzRjOS00YTQ4LTg2MjYtMGRiYWMzYTQ4MDVmIiwidCI6ImQxMjVmZmE0LTcxZTMtNDkxZC04N2I0LWM2NDkxNmVhY2YyMCJ9" frameborder="0" width="100%" height="600"></iframe>
   </div>
 
   <script>
-    var reportUrls = [
-      "https://app.powerbi.com/reportEmbed?reportId=eyJrIjoiM2M1NzI0N2QtNzRjOS00YTQ4LTg2MjYtMGRiYWMzYTQ4MDVmIiwidCI6ImQxMjVmZmE0LTcxZTMtNDkxZC04N2I0LWM2NDkxNmVhY2YyMCJ9",
-     
-      // Add more report URLs here
-    ];
-
-    var currentSlide = 0;
+    var reportUrl = "https://app.powerbi.com/view?r=eyJrIjoiM2M1NzI0N2QtNzRjOS00YTQ4LTg2MjYtMGRiYWMzYTQ4MDVmIiwidCI6ImQxMjVmZmE0LTcxZTMtNDkxZC04N2I0LWM2NDkxNmVhY2YyMCJ9";
     var reportIframe = document.getElementById("report-iframe");
 
-    function showReport() {
-      reportIframe.src = reportUrls[currentSlide];
-      currentSlide = (currentSlide + 1) % reportUrls.length;
+    function loadReport() {
+      reportIframe.src = reportUrl;
     }
 
-    setInterval(showReport, 10000); // Change report every 10 seconds (adjust as needed)
+    setInterval(loadReport, 10000); // Change report every 10 seconds (adjust as needed)
   </script>
 </body>
 </html>
